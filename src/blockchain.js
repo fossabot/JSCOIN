@@ -17,7 +17,7 @@ class Blockchain {
 	}
 
 	minePendingTransactions(miningRewardAddress){
-		let block = new Block(Date.now(), this.pendingTransactions, this.getLastestBlock().hash);
+		let block = new Block(Date.now(), this.pendingTransactions, this.getLatestBlock.hash);
 		block.mineBlock(this.difficulty);
 
 		console.log("block successfully mined");
