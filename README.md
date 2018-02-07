@@ -30,7 +30,7 @@ Requirements:
 
 ```
 git clone https://github.com/flupine/JSCOIN.git
-cd JSCOIN/src
+cd JSCOIN
 npm install
 node server.js
 ```
