@@ -1,4 +1,6 @@
-let blockchain = require('./src/blockchain');
+let Blockchain = require('./src/blockchain');
 let Transaction = require('./src/transactions');
 let block = require('./src/block');
-let jscoin = new blockchain();
+let Wallet = require('./src/wallet');
+let jscoin = new Blockchain();
+let wallet = new Wallet();

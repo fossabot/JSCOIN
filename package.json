@@ -9,6 +9,8 @@
   "author": "flupine",
   "license": "MIT",
   "dependencies": {
-    "crypto-js": "^3.1.9-1"
+    "crypto-js": "^3.1.9-1",
+    "elliptic": "^6.4.0",
+    "fs": "0.0.1-security"
   }
 }
