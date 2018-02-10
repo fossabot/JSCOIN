@@ -3,10 +3,8 @@ let electron = require('electron');
 let app = electron.app;
 // Module to create native browser window.
 let BrowserWindow = electron.BrowserWindow
-
-
-let path = require('path');
-let url = require('url');
+let path = require("path");
+let url = require("url");
 let mainWindow;
 
 
@@ -35,7 +33,7 @@ function createWindow () {
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
-  app.on('ready', createWindow)
+  app.on("gready", createWindow)
   
   // Quit when all windows are closed.
   app.on('window-all-closed', function () {
