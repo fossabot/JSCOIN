@@ -11,6 +11,9 @@ class Wallet{
 	}
 
 	initWallet() {
+		if (!fs.existsSync('./wallet')){
+			fs.mkdirSync('./wallet');
+		}
 		if (fs.existsSync(privateKeyLocation)) {
 			return;
 		}
