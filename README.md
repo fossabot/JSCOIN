@@ -34,5 +34,5 @@ Requirements:
 git clone https://github.com/flupine/JSCOIN.git
 cd JSCOIN
 npm install
-npm start
+node server.js
 ```
