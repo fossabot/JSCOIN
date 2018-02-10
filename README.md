@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7c4c6a3f20184cb584a32d99ccd1ab8c)](https://www.codacy.com/app/faurest.lupine/JSCOIN?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=flupine/JSCOIN&amp;utm_campaign=Badge_Grade)
+
 JSCOIN - Basic blockchain implementation in JS
 =====================================
 
