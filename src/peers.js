@@ -3,7 +3,7 @@ let Blockchain = require('./blockchain');
 let Block = require('./block');
 let blockchain = new Blockchain();
 class peers{
-	constructor(host, port, peerHost, peerPort){
+	constructor(host, port){
 		this.host = host;
 		this.port = port;
 		this.peerHost = peerHost;
@@ -11,7 +11,6 @@ class peers{
 		this.peer = p2p.peer({
 			host: this.host,
 			port: this.port,
-			wheelKnownPeers: { host: this.peerHost, port: this.peerPort },
 			serviceInterval: '10s'
 		});
 		console.log(this.peer.status());
