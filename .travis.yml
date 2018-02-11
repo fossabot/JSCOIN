@@ -5,10 +5,8 @@ node_js:
         - "8.9.4"
 install:
         - npm install
-        - npm install -g codecov
 script:
         - node server.js
         - node server.js mining
         - node server.js wallet
         - node server.js pending
-        - codecov
