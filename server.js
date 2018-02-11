@@ -5,7 +5,7 @@ let block = require('./src/block');
 let Wallet = require('./src/wallet');
 var program = require('commander');
 let wallet = new Wallet();
-let jscoin = new Blockchain(peers.syncBlock());
+let jscoin = new Blockchain();
 let peers = new p2p('51.15.192.98');
 wallet.initWallet();
 peers.syncBlock();
