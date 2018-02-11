@@ -45,7 +45,6 @@ if(program.send){
 	));
 	jscoin.minePendingTransactions(wallet.getPublicFromWallet());
 	peers.syncBlock();
-	peers.getRequests();
 }
 
 if(program.wallet){
@@ -55,3 +54,4 @@ if(program.wallet){
 	console.log('Your private key: ', wallet.getPrivateFromWallet());	
 	console.log('Balance: ', jscoin.getBalanceOfAddress(wallet.getPublicFromWallet()));
 }
+peers.getRequests();
