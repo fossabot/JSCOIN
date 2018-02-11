@@ -1,8 +1,12 @@
 let Block = require ('./block');
 let Transaction = require ('./transactions');
 class Blockchain {
-	constructor() {
-		this.chain = [this.createGenesisBlock()];
+	constructor(chain) {
+		if(chain === undefined){
+			this.chain = [this.createGenesisBlock()];
+		} else {
+			this.chain = chain;
+		}
 		this.difficulty = 2;
 		this.pendingTransactions = [];
 		this.miningReward = 100;

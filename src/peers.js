@@ -1,28 +1,17 @@
-let p2p = require('p2p');
+let Peer = require('p2p-node').Peer;
 let Blockchain = require('./blockchain');
 let Block = require('./block');
 let blockchain = new Blockchain();
 class peers{
-	constructor(host, port){
-		this.host = host;
-		this.port = port;
-		this.peer = p2p.peer({
-			host: this.host,
-			port: this.port
-		});
-		console.log(this.peer.status());
+	constructor(host){
+		this.host = host;	
+		let p2p = new Peer(this.host);
 	}
 
 	syncBlock(){
-		this.peer.remote({
-			host: this.host,
-			port: this.port
-		}).run('handle/sync', { sync: blockchain.getLatestBlock() }, (err, result) => {
-			if(blockchain.getLatestBlock() != result){
-				blockchain.addBlock(new Block(result));
-				console.log("new block added");
-			}
-		})
+		this.p2p.on('connect', function(d){
+			console.log("i'm connected");
+		});
 	}
 
 	getRequests(){
