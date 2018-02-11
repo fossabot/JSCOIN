@@ -1,11 +1,16 @@
 let Blockchain = require('./src/blockchain');
 let Transaction = require('./src/transactions');
+let p2p = require('./src/peers');
 let block = require('./src/block');
 let Wallet = require('./src/wallet');
 var program = require('commander');
 let jscoin = new Blockchain();
 let wallet = new Wallet();
+let peers = new p2p('localhost', '3301', 'localhost', '3300');
 wallet.initWallet();
+peers.syncBlock();
+peers.getRequests();
+console.log(new Transaction('', 'adress2', 1));
 program
 	.usage('[options] <file ...>')
 	.version('0.1.0')

@@ -9,11 +9,17 @@ class Blockchain {
 	}
 
 	createGenesisBlock() {
-		return new Block(Date.parse("06/02/2018"), [], "0");
+		return new Block(Date.parse("06/02/2018"), [{ fromAddress: '', 
+													toAddress: '0478f5fc487a05e3d189f5970249c9a0a1e4722f55b506296d6aeec5e4f6084967f8f7fcbca0c69f8061f4f6dd6bff4917a98db7f0db7c4f1fcf801201a4d3a874', 
+													amount: 1000 }], "0");
 	}
 
 	getLatestBlock() {
 		return this.chain[this.chain.length - 1];
+	}
+
+	addBlock(block) {
+		this.chain.push(block);
 	}
 
 	minePendingTransactions(miningRewardAddress){
