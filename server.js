@@ -6,10 +6,8 @@ let Wallet = require('./src/wallet');
 var program = require('commander');
 let jscoin = new Blockchain();
 let wallet = new Wallet();
-let peers = new p2p('localhost', '3301', 'localhost', '3300');
+let peers = new p2p('88.125.234.73', '3300', '51.15.192.98', '3300');
 wallet.initWallet();
-peers.syncBlock();
-peers.getRequests();
 console.log(new Transaction('', 'adress2', 1));
 program
 	.usage('[options] <file ...>')
@@ -41,13 +39,19 @@ if(program.create){
 
 if(program.send){
 	jscoin.createTransaction(new Transaction(
-		wallet.getPublicFromWallet, 
+		wallet.getPublicFromWallet(), 
 		program.send[0], 
 		program.send[1]
 	));
+	jscoin.minePendingTransactions(wallet.getPublicFromWallet());
+	peers.syncBlock();
+	peers.getRequests();
 }
 
 if(program.wallet){
+	peers.syncBlock();
+	peers.getRequests();
 	console.log("Your address:     ", wallet.getPublicFromWallet());
 	console.log('Your private key: ', wallet.getPrivateFromWallet());	
+	console.log('Balance: ', jscoin.getBalanceOfAddress(wallet.getPublicFromWallet()));
 }

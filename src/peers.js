@@ -22,22 +22,24 @@ class peers{
 			host: this.peerHost,
 			port: this.peerPort
 		}).run('handle/sync', { sync: blockchain.getLatestBlock() }, (err, result) => {
-			if(blockchain.getLatestBlock().timestamp < result.timestamp){
-				blockchain.addBlock(new Block(result.timestamp, result.pendingTransactions, result.getLatestBlock.hash));
+			if(blockchain.getLatestBlock() < result){
+				blockchain.addBlock(new Block(result));
 				console.log("new block added");
 			}
 		})
 	}
 
 	getRequests(){
-		this.peer.handle.sync = (payload, done, err) => {
-			if (payload.timestamp < blockchain.getLatestBlock().timestamp){
+		this.peer.handle.sync = (payload, done) => {
+			if (payload < blockchain.getLatestBlock().timestamp){
+				console.log("send new blocks");				
 				return (blockchain.getLatestBlock());
-			} 
-			if (err) {
-			  return done(err);
+			} else if (payload.timestamp > blockchain.getLatestBlock().timestamp){
+				blockchain.addBlock(new Block(payload));
+				console.log("new block added");
+				return (blockchain.getLatestBlock());
 			}
-			done(null);
+			console.log("Blocks Sync....")
 		  };
 	}
 }
