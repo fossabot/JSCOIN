@@ -6,7 +6,7 @@ let Wallet = require('./src/wallet');
 var program = require('commander');
 let jscoin = new Blockchain();
 let wallet = new Wallet();
-let peers = new p2p('51.15.192.98', '3300', '51.15.192.98', '3300');
+let peers = new p2p('51.15.192.98', '3300');
 wallet.initWallet();
 console.log(new Transaction('', 'adress2', 1));
 program

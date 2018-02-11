@@ -8,16 +8,15 @@ class peers{
 		this.port = port;
 		this.peer = p2p.peer({
 			host: this.host,
-			port: this.port,
-			serviceInterval: '10s'
+			port: this.port
 		});
 		console.log(this.peer.status());
 	}
 
 	syncBlock(){
 		this.peer.remote({
-			host: this.peerHost,
-			port: this.peerPort
+			host: this.host,
+			port: this.port
 		}).run('handle/sync', { sync: blockchain.getLatestBlock() }, (err, result) => {
 			if(blockchain.getLatestBlock() < result){
 				blockchain.addBlock(new Block(result));
