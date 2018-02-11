@@ -5,7 +5,7 @@ let blockchain = new Blockchain();
 class peers{
 	constructor(host){
 		this.host = host;	
-		let p2p = new Peer(this.host);
+		this.p2p = new Peer(this.host);
 	}
 
 	syncBlock(){
