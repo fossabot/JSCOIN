@@ -8,7 +8,8 @@ let jscoin = new Blockchain();
 let wallet = new Wallet();
 let peers = new p2p('51.15.192.98', '3300');
 wallet.initWallet();
-console.log(new Transaction('', 'adress2', 1));
+peers.syncBlock();
+peers.getRequests();
 program
 	.usage('[options] <file ...>')
 	.version('0.1.0')

@@ -18,7 +18,7 @@ class peers{
 			host: this.host,
 			port: this.port
 		}).run('handle/sync', { sync: blockchain.getLatestBlock() }, (err, result) => {
-			if(blockchain.getLatestBlock() < result){
+			if(blockchain.getLatestBlock().timestamp < result.timestamp){
 				blockchain.addBlock(new Block(result));
 				console.log("new block added");
 			}
@@ -27,7 +27,7 @@ class peers{
 
 	getRequests(){
 		this.peer.handle.sync = (payload, done) => {
-			if (payload < blockchain.getLatestBlock().timestamp){
+			if (payload.timestamp < blockchain.getLatestBlock().timestamp){
 				console.log("send new blocks");				
 				return (blockchain.getLatestBlock());
 			} else if (payload.timestamp > blockchain.getLatestBlock().timestamp){
