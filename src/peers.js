@@ -6,8 +6,6 @@ class peers{
 	constructor(host, port){
 		this.host = host;
 		this.port = port;
-		this.peerHost = peerHost;
-		this.peerPort = peerPort;
 		this.peer = p2p.peer({
 			host: this.host,
 			port: this.port,
