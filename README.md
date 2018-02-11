@@ -2,6 +2,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7c4c6a3f20184cb584a32d99ccd1ab8c)](https://www.codacy.com/app/faurest.lupine/JSCOIN?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=flupine/JSCOIN&amp;utm_campaign=Badge_Grade) 
 [![Maintainability](https://api.codeclimate.com/v1/badges/b8df5b0ae380c1cf4eda/maintainability)](https://codeclimate.com/github/flupine/JSCOIN/maintainability)
+[![Build Status](https://travis-ci.org/flupine/JSCOIN.svg?branch=master)](https://travis-ci.org/flupine/JSCOIN)
 
 JSCOIN - Basic blockchain implementation in JS
 =====================================
