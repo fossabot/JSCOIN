@@ -9,7 +9,7 @@ class Blockchain {
 	}
 
 	createGenesisBlock() {
-		return new Block("06/02/2018", "Genesis block", "0");
+		return new Block(Date.parse("06/02/2018"), [], "0");
 	}
 
 	getLatestBlock() {
@@ -32,10 +32,10 @@ class Blockchain {
 	}
 
 	createTransaction(transaction){
-		//if (this.getBalanceOfAddress(transaction.fromAddress) <= 0){
-		//	console.log("\x1b[31m", 'No enought coins of from address', "\x1b[0m");
-		//	return false;
-		//}
+		if (this.getBalanceOfAddress(transaction.fromAddress) <= 0){
+			console.log("\x1b[31m", 'No enought coins of from address', "\x1b[0m");
+			return false;
+		}
 		this.pendingTransactions.push(transaction);
 		console.log("Transaction success");
 	}
